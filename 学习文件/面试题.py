@@ -29,14 +29,38 @@ def Json():
 def sort():
 
     stu = ['张三:20','李四:70','王五:88','李六:40','王吉:55.5',]
+    list_stu = []
     dict_stu = {}
 
     for i in stu:
         s = i.split(':')
-        print(s)
+        for k in s:
+            list_stu.append(k)
 
-    return dict_stu
+    for j in range(0,len(list_stu),2):
+        dict_stu[list_stu[j]] = list_stu[j+1]
+
+        dict2 = sorted(dict_stu.items(), key=lambda item:item[1],reverse=True)
+
+    return dict2
+
+
+'''
+将102张卡片打乱并且打乱后保证不在原位置
+'''
+
+
+def random_num():
+
+    import random
+
+    nums = [1,2,3,4,5,6,7,8,9,0]
+
+
+
+    return nums
+
 
 if __name__ == '__main__':
-    result = sort()
+    result = random_num()
     print(result)

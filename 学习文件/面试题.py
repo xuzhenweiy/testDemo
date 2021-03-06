@@ -54,11 +54,24 @@ def random_num():
 
     import random
 
-    nums = [1,2,3,4,5,6,7,8,9,0]
+    nums = [1,2,3]
+    a = nums[:]
+    random.shuffle(nums)
+    for i in range(len(nums)-1):
+        if a[i]==nums[i]:
+
+            nums[i],nums[i+1] =nums[i+1],nums[i]
+
+        elif a[len(nums)-1]==nums[len(nums)-1]:
+            nums[len(nums)-1],nums[0] = nums[0],nums[len(nums)-1]
 
 
+        else:
+            pass
 
+    print(a)
     return nums
+
 
 
 if __name__ == '__main__':

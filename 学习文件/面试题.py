@@ -74,6 +74,37 @@ def random_num():
 
 
 
+def random_num2():
+
+    import random
+
+    nums = [1,2,3]
+    nums2  = nums[:]
+    random.shuffle(nums)
+
+    l = 0
+    for i,j in zip(nums,nums2):
+
+            try:
+
+                if i == j:
+
+                    print("替换前:",i,nums)
+                    nums[l],nums[l+1] = nums[l+1],nums[l]
+                    print("替换后:",i,nums)
+
+                    l +=1
+
+                else:
+                    l += 1
+                    continue
+
+            except IndexError:
+                nums[-1],nums[0] = nums[0],nums[-1]
+
+    return nums
+
+
 if __name__ == '__main__':
-    result = random_num()
+    result = random_num2()
     print(result)
